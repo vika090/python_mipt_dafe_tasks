@@ -1,9 +1,5 @@
-from typing import (
-    Callable,
-    ParamSpec,
-    TypeVar,
-    Any
-)
+from typing import Any, Callable, ParamSpec, TypeVar
+
 
 def create_cach(max_size):
     data = {} 

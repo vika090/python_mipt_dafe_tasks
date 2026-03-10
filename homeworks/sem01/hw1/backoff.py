@@ -1,10 +1,6 @@
 from random import uniform
 from time import sleep
-from typing import (
-    Callable,
-    ParamSpec,
-    TypeVar
-)
+from typing import Callable, ParamSpec, TypeVar
 
 P = ParamSpec("P")
 R = TypeVar("R")

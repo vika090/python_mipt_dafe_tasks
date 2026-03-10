@@ -1,10 +1,5 @@
-from typing import (
-    Callable,
-    ParamSpec,
-    TypeVar,
-    Any 
-)
 from functools import wraps
+from typing import Any, Callable, ParamSpec, TypeVar
 
 P = ParamSpec("P")
 R = TypeVar("R")

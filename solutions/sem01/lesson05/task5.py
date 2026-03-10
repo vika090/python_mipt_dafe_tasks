@@ -30,7 +30,7 @@ def reg_validator(reg_expr: str, text: str) -> bool:
                     break
                 
         elif reg_expr[j] == "s":
-            if not text[ind_text].isdigit() and (not text[ind_text] in digit):
+            if not text[ind_text].isdigit() and (text[ind_text] not in digit):
                 return False
             while text[ind_text] in digit or text[ind_text].isdigit():
                 ind_text+=1

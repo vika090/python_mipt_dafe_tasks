@@ -1,6 +1,7 @@
 import math
 from numbers import Real
 
+
 class Vector2D:
     def __init__(self, abscissa:float = 0.0, ordinate: float = 0.0):
         self._abscissa = float(abscissa)

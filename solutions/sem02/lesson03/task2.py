@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class ShapeMismatchError(Exception):
     pass
 
