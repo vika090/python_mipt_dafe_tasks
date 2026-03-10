@@ -2,7 +2,7 @@ def get_sum_of_prime_divisors(num: int) -> int:
     sum_of_divisors = 0
     # ваш код
     if num <= 1:
-        return 0  
+        return 0
     prime_divisors = set()
     temp = num
     if temp % 2 == 0:
@@ -12,13 +12,13 @@ def get_sum_of_prime_divisors(num: int) -> int:
     divisor = 3
     while divisor * divisor <= temp:
         if temp % divisor == 0:
-            prime_divisors.add(divisor)  
+            prime_divisors.add(divisor)
             while temp % divisor == 0:
                 temp //= divisor
         divisor += 2
 
     if temp > 1:
         prime_divisors.add(temp)
-    
-    sum_of_divisors =sum(prime_divisors)
+
+    sum_of_divisors = sum(prime_divisors)
     return sum_of_divisors

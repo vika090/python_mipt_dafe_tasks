@@ -4,4 +4,4 @@ def are_anagrams(word1: str, word2: str) -> bool:
     for char in word1:
         if word2.count(char) != word1.count(char):
             return False
-    return True 
+    return True

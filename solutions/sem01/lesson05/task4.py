@@ -7,13 +7,13 @@ def unzip(compress_text: str) -> str:
         if char in "1234567890":
             mnogitel += char
         elif char == " ":
-            if len(mnogitel)>0:
-                new_str += user*int(mnogitel)
+            if len(mnogitel) > 0:
+                new_str += user * int(mnogitel)
                 mnogitel = ""
             else:
                 new_str += user
-            user=""
+            user = ""
         elif char != "*":
-            user+=char
+            user += char
     compress_text = new_str
     return compress_text
