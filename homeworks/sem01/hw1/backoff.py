@@ -13,7 +13,6 @@ def _validate_backoff_parameters(
     backoff_scale: float,
     backoff_triggers: tuple[type[Exception], ...],
 ) -> None:
-
     if retry_amount < 1 or retry_amount > 100:
         raise ValueError(f"retry_amount should be 1-100, yours{retry_amount}")
     if timeout_start <= 0 or timeout_start >= 10:
@@ -36,7 +35,6 @@ def backoff(
     backoff_scale: float = 2.0,
     backoff_triggers: tuple[type[Exception]] = (Exception,),
 ) -> Callable[[Callable[P, R]], Callable[P, R]]:
-
     _validate_backoff_parameters(
         retry_amount, timeout_start, timeout_max, backoff_scale, backoff_triggers
     )

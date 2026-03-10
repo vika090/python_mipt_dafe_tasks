@@ -5,7 +5,6 @@ T = TypeVar("T")
 
 
 def collect_statistic(statistics: dict[str, list[float, int]]) -> Callable[[T], T]:
-
     def decorator(func: T) -> T:
         metrics = [0, 0.0]
 

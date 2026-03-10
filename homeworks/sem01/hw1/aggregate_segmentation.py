@@ -6,7 +6,6 @@ ALLOWED_TYPES = {
 
 
 def is_segment_valid(audio_id, segment_id, segment_type, segment_start, segment_end):
-
     if audio_id is None or segment_id is None:
         return False
 
