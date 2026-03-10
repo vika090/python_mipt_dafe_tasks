@@ -25,7 +25,7 @@ def get_mutual_l2_distances_vectorized(
     if lhs.shape[1] != rhs.shape[1]:
         raise ShapeMismatchError
     n, m = lhs.shape
-    k, l = rhs.shape
+    k, cols = rhs.shape
 
     dif = lhs.reshape(n, 1, m) - rhs.reshape(1, k, m)
     dis = np.sqrt(np.sum(dif**2, axis=2))

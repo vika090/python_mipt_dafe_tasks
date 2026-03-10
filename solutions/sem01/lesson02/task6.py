@@ -12,7 +12,7 @@ def get_sum_of_prime_divisors(num: int) -> int:
     divisor = 3
     while divisor * divisor <= temp:
         if temp % divisor == 0:
-            prime_divisors.add(divisor)  # divisor будет простым, так как мы идем от меньшего к большему
+            prime_divisors.add(divisor)  
             while temp % divisor == 0:
                 temp //= divisor
         divisor += 2

@@ -1,5 +1,5 @@
 def get_amount_of_ways_to_climb(stair_amount: int) -> int:
-    step_prev, step_curr = 1, 1
+    step_curr = 1
     # ваш код
     ways = [0]*(stair_amount+1)
     ways[0]=1

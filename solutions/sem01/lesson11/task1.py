@@ -20,8 +20,10 @@ class Vector2D:
             if val == int(val):
                 return str(int(val))
             return str(val)
-        return f"Vector2D(abscissa={format_val(self.abscissa)}, ordinate={format_val(self.ordinate)})"
-    
+        return (
+    f"Vector2D(abscissa={format_val(self.abscissa)}, "
+    f"ordinate={format_val(self.ordinate)})"
+)
     def __bool__(self):
         return not math.isclose(abs(self), 0.0,  abs_tol=1e-15)
     
