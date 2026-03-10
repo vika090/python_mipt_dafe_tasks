@@ -30,8 +30,8 @@ R = TypeVar("R")
 
 def lru_cache(capacity: int) -> Callable[[Callable[P, R]], Callable[P, R]]:
     try:
-        valid_capacity = round(capacity)
-    except:
+       valid_capacity = round(capacity)
+    except TypeError:
         raise TypeError(f"{capacity} should be rounded")
     if valid_capacity <1:
         raise ValueError(f"{capacity} should be smaller then 1")
