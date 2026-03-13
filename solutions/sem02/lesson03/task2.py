@@ -27,6 +27,7 @@ def convert_to_sphere(
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     if not (abscissa.shape == ordinates.shape == applicates.shape):
         raise ShapeMismatchError
+
     distances = np.sqrt(abscissa**2 + ordinates**2 + applicates**2)
     azimuth = np.arctan2(ordinates, abscissa)
     inclination = np.arctan2(np.sqrt(abscissa**2 + ordinates**2), applicates)

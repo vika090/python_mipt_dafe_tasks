@@ -2,7 +2,6 @@ import numpy as np
 
 
 def pad_image(image: np.ndarray, pad_size: int) -> np.ndarray:
-    # ваш код
     if pad_size < 1:
         raise ValueError
     if len(image.shape) == 2:

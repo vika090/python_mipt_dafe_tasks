@@ -9,7 +9,6 @@ def get_extremum_indices(
 
     # min_ordinates = []
     # max_ordinates = []
-
     # for i in range(1, len(ordinates)-1):
     #     if ordinates[i]<ordinates[i-1] and ordinates[i]<ordinates[i+1]:
     #         min_ordinates.append()
