@@ -8,27 +8,28 @@ def get_dominant_color_info(
     if threshold < 1:
         raise ValueError("threshold must be positive")
 
-    pixels = image.flatten()
+    arr = image.flatten()
+    length = arr.size
 
-    groups = np.zeros(256, dtype=np.int64)
+    cnt = np.zeros(256, dtype=np.int64)
+    for val in range(256):
+        eq = arr == val
+        cnt[val] = np.sum(eq)
 
-    for i in pixels:
-        groups[i] += 1
+    max_val = 0
+    max_idx = 0
+    for i in range(256):
+        if cnt[i] == 0:
+            continue
 
-    max_size = 0
-    max_group = 0
+        l = max(0, i - threshold + 1)
+        r = min(255, i + threshold - 1)
 
-    for color in range(256):
-        left = max(0, color - threshold + 1)
-        right = min(255, color + threshold - 1)
+        cur = np.sum(cnt[l : r + 1])
 
-        cur_group = np.sum(groups[left : right + 1])
+        if cur > max_val:
+            max_val = cur
+            max_idx = i
 
-        if cur_group > max_size:
-            max_size = cur_group
-            max_group = color
-
-    dominate_color = np.uint8(max_group)
-    percent = max_size / pixels.size * 100
-
-    return dominate_color, percent
+    percent = (max_val / length) * 100
+    return np.uint8(max_idx), percent
