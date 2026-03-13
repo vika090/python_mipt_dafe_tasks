@@ -22,10 +22,10 @@ def get_dominant_color_info(
         if cnt[i] == 0:
             continue
 
-        l = max(0, i - threshold + 1)
-        r = min(255, i + threshold - 1)
+        left = max(0, i - threshold + 1)
+        right = min(255, i + threshold - 1)
 
-        cur = np.sum(cnt[l : r + 1])
+        cur = np.sum(cnt[left : right + 1])
 
         if cur > max_val:
             max_val = cur
