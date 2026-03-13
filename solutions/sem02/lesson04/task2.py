@@ -29,6 +29,6 @@ def get_dominant_color_info(
             max_group = color
 
     dominate_color = np.uint8(max_group)
-    persent = max_size / pixels.size * 100
+    percent = max_size / pixels.size * 100
 
-    return dominate_color, persent
+    return dominate_color, percent
