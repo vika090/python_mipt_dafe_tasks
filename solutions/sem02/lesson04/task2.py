@@ -5,7 +5,6 @@ def get_dominant_color_info(
     image: np.ndarray,
     threshold: int = 5,
 ) -> tuple[np.uint8, float]:
-
     if threshold < 1:
         raise ValueError("threshold must be positive")
 
@@ -21,11 +20,10 @@ def get_dominant_color_info(
 
     for color in range(256):
         if groups[color] != 0:
-
             low = max(0, color - (threshold - 1))
             high = min(255, color + (threshold - 1))
 
-            cur_group = np.sum(groups[low:high + 1])
+            cur_group = np.sum(groups[low : high + 1])
 
             if cur_group > max_size:
                 max_size = cur_group

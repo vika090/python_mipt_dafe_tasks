@@ -3,24 +3,25 @@ import numpy as np
 
 def pad_image(image: np.ndarray, pad_size: int) -> np.ndarray:
     # ваш код
-    if pad_size <1:
+    if pad_size < 1:
         raise ValueError
-    if len(image.shape) ==2 :
+    if len(image.shape) == 2:
         n, m = list(image.shape)
-        new_pad_n = n + 2*pad_size
-        new_pad_m = m + 2*pad_size
-        padded = np.zeros((new_pad_n, new_pad_m), dtype = image.dtype)
-        padded[pad_size:pad_size + n, pad_size:pad_size + m] = image
+        new_pad_n = n + 2 * pad_size
+        new_pad_m = m + 2 * pad_size
+        padded = np.zeros((new_pad_n, new_pad_m), dtype=image.dtype)
+        padded[pad_size : pad_size + n, pad_size : pad_size + m] = image
     elif len(image.shape) == 3:
-        n, m , c= list(image.shape)
-        new_pad_n = n + 2*pad_size
-        new_pad_m = m + 2*pad_size
-        #new_pad_c = c + 2*pad_size
-        padded = np.zeros((new_pad_n, new_pad_m, c), dtype = image.dtype)
-        padded[pad_size:pad_size + n, pad_size:pad_size + m, :] = image
+        n, m, c = list(image.shape)
+        new_pad_n = n + 2 * pad_size
+        new_pad_m = m + 2 * pad_size
+        # new_pad_c = c + 2*pad_size
+        padded = np.zeros((new_pad_n, new_pad_m, c), dtype=image.dtype)
+        padded[pad_size : pad_size + n, pad_size : pad_size + m, :] = image
     else:
         return ValueError
     return padded
+
 
 def blur_image(
     image: np.ndarray,
@@ -38,21 +39,20 @@ def blur_image(
         res = np.zeros((n, m), dtype=np.float32)
         for i in range(n):
             for j in range(m):
-                window = padded[i:i + kernel_size, j:j + kernel_size]
+                window = padded[i : i + kernel_size, j : j + kernel_size]
                 res[i, j] = np.mean(window)
     elif image.ndim == 3:
         n, m, c = image.shape
         res = np.zeros((n, m, c), dtype=np.float32)
         for i in range(n):
             for j in range(m):
-                window = padded[i:i + kernel_size, j:j + kernel_size, :]
+                window = padded[i : i + kernel_size, j : j + kernel_size, :]
                 res[i, j, :] = np.mean(window, axis=(0, 1))
     else:
         raise ValueError
-    
-    return np.round(res).astype(np.uint8) 
- 
-   
+
+    return np.round(res).astype(np.uint8)
+
 
 if __name__ == "__main__":
     import os
