@@ -10,6 +10,7 @@ def can_satisfy_demand(
     resource_amounts: np.ndarray,
     demand_expected: np.ndarray,
 ) -> bool:
+    
     M, N = costs.shape
     if M != len(resource_amounts) or N != len(demand_expected):
         raise ShapeMismatchError
