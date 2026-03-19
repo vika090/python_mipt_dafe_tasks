@@ -19,7 +19,8 @@ def adaptive_filter(
     if M != M2 or len(diag_A) != K:
         raise ShapeMismatchError
 
+    A = np.diag(diag_A)
     Vj_H = Vj.conj().T
-    inner_inv = np.linalg.inv(np.eye(K) + Vj_H @ Vj @ np.diag(diag_A))
-    R_inv = np.eye(M) - Vj @ inner_inv @ Vj_H
-    return R_inv @ Vs
+
+    inner_inv = np.linalg.inv(np.eye(K) + Vj_H @ Vj @ A)
+    return Vs - Vj @ inner_inv @ (Vj_H @ Vs)
