@@ -1,11 +1,7 @@
-from functools import partial
-
 import matplotlib.pyplot as plt
 import numpy as np
-
 from IPython.display import HTML
 from matplotlib.animation import FuncAnimation
-
 
 def create_modulation_animation(
     modulation, fc, num_frames, plot_duration, time_step=0.001, animation_step=0.01, save_path=""

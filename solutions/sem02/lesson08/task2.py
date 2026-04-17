@@ -1,10 +1,8 @@
-from functools import partial
+from collections import deque
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.animation import FuncAnimation
-from collections import deque
 from IPython.display import HTML
-
 
 def animate_wave_algorithm(
     maze: np.ndarray, start: tuple[int, int], end: tuple[int, int], save_path: str = ""
